@@ -20,14 +20,14 @@ const MultiStepForm: React.FC = () => {
   };
 
   return (
-    <div className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
+    <div className="p-4 border border-light-surface dark:border-dark-surface rounded-lg bg-light-surface dark:bg-dark-surface">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-bold">{steps[currentStep].title}</h2>
         <div>
           <Tooltip content="Go to the previous step">
             <button
               onClick={handlePrev}
-              className="mr-2 px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700"
+              className="mr-2 px-4 py-2 rounded-full bg-light-background dark:bg-dark-background disabled:opacity-50"
               disabled={currentStep === 0}
             >
               Previous
@@ -36,7 +36,7 @@ const MultiStepForm: React.FC = () => {
           <Tooltip content="Go to the next step">
             <button
               onClick={handleNext}
-              className="px-4 py-2 rounded-full bg-blue-500 text-white"
+              className="px-4 py-2 rounded-full bg-accent-primary text-white disabled:opacity-50"
               disabled={currentStep === steps.length - 1}
             >
               Next

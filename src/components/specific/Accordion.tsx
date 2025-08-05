@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaBookmark, FaRegBookmark, FaShareAlt } from 'react-icons/fa';
 import { useBookmarkStore } from '../../store/bookmarkStore';
 
+import LazyAccordionContent from './LazyAccordionContent';
 interface AccordionProps {
   id: string;
   title: string;
@@ -32,25 +33,28 @@ const Accordion: React.FC<AccordionProps> = ({ id, title, children, isOpen, onTo
   };
 
   return (
-    <div className="border-b border-gray-200 dark:border-gray-700" id={id}>
+    <div className="border-b border-light-surface dark:border-dark-surface" id={id}>
       <div
         onClick={onToggle}
-        className="w-full flex justify-between items-center p-4 text-left text-lg font-semibold text-gray-900 dark:text-white cursor-pointer"
+        className="w-full flex justify-between items-center p-4 text-left text-lg font-semibold text-light-text-primary dark:text-dark-text-primary cursor-pointer"
+        aria-expanded={isOpen}
+        aria-controls={`accordion-content-${id}`}
       >
         <div>
-          <span>{title}</span>
-          {!isOpen && <p className="text-sm text-gray-500 mt-1">{preview}</p>}
+          <span id={`accordion-title-${id}`}>{title}</span>
+          {!isOpen && <p className="text-sm text-light-text-secondary dark:text-dark-text-secondary mt-1">{preview}</p>}
         </div>
         <div className="flex items-center space-x-4">
-          <button onClick={handleBookmark} className="focus:outline-none">
+          <button onClick={handleBookmark} className="focus:outline-none" aria-label={`Bookmark ${title}`}>
             {isBookmarked(id) ? <FaBookmark /> : <FaRegBookmark />}
           </button>
-          <button onClick={handleShare} className="focus:outline-none">
+          <button onClick={handleShare} className="focus:outline-none" aria-label={`Share ${title}`}>
             <FaShareAlt />
           </button>
           <motion.span
             animate={{ rotate: isOpen ? 180 : 0 }}
             transition={{ duration: 0.3 }}
+            aria-hidden="true"
           >
             &#9660;
           </motion.span>
@@ -59,13 +63,18 @@ const Accordion: React.FC<AccordionProps> = ({ id, title, children, isOpen, onTo
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id={`accordion-content-${id}`}
+            role="region"
+            aria-labelledby={`accordion-title-${id}`}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <div className="p-4">{children}</div>
+            <div className="p-4">
+              <LazyAccordionContent>{children}</LazyAccordionContent>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -23,7 +23,7 @@ const Tooltip: React.FC<TooltipProps> = ({ content, children }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.2 }}
-            className="absolute z-10 w-48 p-2 mt-2 text-sm text-white bg-black rounded-md shadow-lg"
+            className="absolute z-10 w-48 p-2 mt-2 text-sm text-dark-text-primary bg-dark-surface rounded-md shadow-lg"
           >
             {content}
           </motion.div>

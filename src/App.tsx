@@ -1,94 +1,122 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import DashboardPage from './pages/DashboardPage';
-import ContentPage from './pages/ContentPage';
-import CardsPage from './pages/CardsPage';
-import FormPage from './pages/FormPage';
-import GridPage from './pages/GridPage';
-import CardDetailPage from './pages/CardDetailPage';
-import TypographyPage from './pages/TypographyPage';
-import IconographyPage from './pages/IconographyPage';
-import MediaPage from './pages/MediaPage';
+import lazyLoad from './utils/lazyLoad';
+import Breadcrumbs from './components/common/Breadcrumbs';
+import Tour from './components/specific/Tour';
+
+const DashboardPage = lazyLoad(() => import('./pages/DashboardPage'));
+const ContentPage = lazyLoad(() => import('./pages/ContentPage'));
+const CardsPage = lazyLoad(() => import('./pages/CardsPage'));
+const CardDetailPage = lazyLoad(() => import('./pages/CardDetailPage'));
+const FormPage = lazyLoad(() => import('./pages/FormPage'));
+const GridPage = lazyLoad(() => import('./pages/GridPage'));
+const TypographyPage = lazyLoad(() => import('./pages/TypographyPage'));
+const IconographyPage = lazyLoad(() => import('./pages/IconographyPage'));
+const MediaPage = lazyLoad(() => import('./pages/MediaPage'));
 
 function App() {
-
   return (
     <Router>
-      <div className="bg-gray-100 dark:bg-gray-900 min-h-screen">
-        <nav className="bg-white dark:bg-gray-800 shadow-md">
+      <Tour />
+      <div className="bg-light-background dark:bg-dark-background text-light-text-primary dark:text-dark-text-primary min-h-screen">
+        <nav className="bg-light-surface dark:bg-dark-surface shadow-md">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
               <div className="flex items-center">
-                <Link to="/" className="text-xl font-bold text-gray-900 dark:text-white">
+                <Link to="/" className="text-xl font-bold text-light-text-primary dark:text-dark-text-primary">
                   DEEP_FACE
                 </Link>
               </div>
               <div className="flex items-center">
                 <Link
                   to="/"
-                  className="text-gray-900 dark:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className="nav-dashboard text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Dashboard
                 </Link>
                 <Link
                   to="/content"
-                  className="text-gray-900 dark:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className="nav-content text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Content
                 </Link>
                 <Link
                   to="/cards"
-                  className="text-gray-900 dark:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Cards
                 </Link>
                 <Link
                   to="/form"
-                  className="text-gray-900 dark:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Form
                 </Link>
                 <Link
                   to="/grid"
-                  className="text-gray-900 dark:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Grid
                 </Link>
                 <Link
                   to="/typography"
-                  className="text-gray-900 dark:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Typography
                 </Link>
                 <Link
                   to="/iconography"
-                  className="text-gray-900 dark:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Iconography
                 </Link>
                 <Link
                   to="/media"
-                  className="text-gray-900 dark:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Media
+                <Link
+                  to="/releases"
+                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Releases
+                </Link>
+                <Link
+                  to="/analytics"
+                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Analytics
+                </Link>
+                <Link
+                  to="/royalties"
+                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Royalties
+                </Link>
                 </Link>
               </div>
             </div>
           </div>
         </nav>
-        <Routes>
-          <Route path="/" element={<DashboardPage />} />
-          <Route path="/content" element={<ContentPage />} />
-          <Route path="/cards" element={<CardsPage />} />
-          <Route path="/cards/:id" element={<CardDetailPage />} />
-          <Route path="/form" element={<FormPage />} />
-          <Route path="/grid" element={<GridPage />} />
-          <Route path="/typography" element={<TypographyPage />} />
-          <Route path="/iconography" element={<IconographyPage />} />
-          <Route path="/media" element={<MediaPage />} />
-        </Routes>
+        <main className="p-4 sm:p-6 lg:p-8">
+          <Breadcrumbs />
+          <Routes>
+            <Route path="/" element={<DashboardPage />} />
+            <Route path="/content" element={<ContentPage />} />
+            <Route path="/cards" element={<CardsPage />} />
+            <Route path="/cards/:id" element={<CardDetailPage />} />
+            <Route path="/form" element={<FormPage />} />
+            <Route path="/grid" element={<GridPage />} />
+          <Route path="/royalties" element={<RoyaltyTrackerPage />} />
+            <Route path="/typography" element={<TypographyPage />} />
+            <Route path="/iconography" element={<IconographyPage />} />
+            <Route path="/media" element={<MediaPage />} />
+          </Routes>
+        </main>
+          <Route path="/analytics" element={<SocialAnalyticsPage />} />
       </div>
     </Router>
   );
 }
 
+          <Route path="/releases" element={<ReleaseManagerPage />} />
 export default App;

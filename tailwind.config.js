@@ -7,6 +7,28 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        light: {
+          background: '#FDFCFB',
+          surface: '#FBF9F6',
+          text: {
+            primary: '#4E443C',
+            secondary: '#8C827A',
+          },
+        },
+        dark: {
+          background: '#1F1C1A',
+          surface: '#2D2824',
+          text: {
+            primary: '#EFEAE6',
+            secondary: '#B0A69E',
+          },
+        },
+        accent: {
+          primary: '#D97757',
+          secondary: '#8A9A5B',
+        },
+      },
       fontSize: {
         'h1': '2.25rem',
         'h2': '1.875rem',

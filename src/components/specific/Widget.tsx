@@ -8,9 +8,11 @@ interface WidgetProps {
 
 const Widget: React.FC<WidgetProps> = ({ title, children, className = '' }) => {
   return (
-    <div className={`bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 sm:p-6 ${className}`}>
-      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">{title}</h3>
-      <div>{children}</div>
+    <div className={`@container bg-light-surface dark:bg-dark-surface rounded-lg shadow-md p-4 sm:p-6 ${className}`}>
+      <h3 className="text-lg font-semibold text-light-text-primary dark:text-dark-text-primary mb-4">{title}</h3>
+      <div className="text-light-text-secondary dark:text-dark-text-secondary @lg:text-lg">
+        {children}
+      </div>
     </div>
   );
 };

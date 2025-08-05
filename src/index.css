@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  --baseline: 4px;
+  --baseline-color: rgba(255, 0, 0, 0.2);
+  background-size: 100% var(--baseline);
+  background-image: linear-gradient(to bottom, var(--baseline-color) 1px, transparent 1px);
+}
+
+
 .fluid-text {
   font-size: clamp(1rem, 1rem + 2vw, 2rem);
 }
