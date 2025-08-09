@@ -57,3 +57,47 @@ export const exportRegistry = async (params: ExportRegistryParams): Promise<stri
   await new Promise(resolve => setTimeout(resolve, 500)); // Simulate network delay
   return csvContent;
 };
+
+export const listArtists = async () => {
+  console.log('Fetching artists...');
+  await new Promise(resolve => setTimeout(resolve, 500)); // Simulate network delay
+  return [
+    { id: '1', name: 'Artist One' },
+    { id: '2', name: 'Artist Two' },
+    { id: '3', name: 'Artist Three' },
+  ];
+};
+
+export const getPipelines = async (artistId: string) => {
+  console.log(`Fetching pipelines for artist ${artistId}...`);
+  await new Promise(resolve => setTimeout(resolve, 500));
+  // In a real app, you would return different data based on the artistId
+  return {
+    master: [
+      { id: 'm1', title: 'Track 1 Mastering', status: 'completed' },
+      { id: 'm2', title: 'Track 2 Mastering', status: 'in-progress' },
+    ],
+    art: [
+      { id: 'a1', title: 'Album Cover Design', status: 'in-progress' },
+    ],
+    promo: [
+      { id: 'p1', title: 'Press Release', status: 'not-started' },
+    ],
+    distro: [
+      { id: 'd1', title: 'Digital Distribution', status: 'completed' },
+    ],
+  };
+};
+
+export const assignTask = async (task: { entityId: string; assignee: string; due: Date }) => {
+  console.log('Assigning task:', task);
+  await new Promise(resolve => setTimeout(resolve, 500));
+  return { success: true };
+};
+
+export const exportLabelReport = async (report: { period: string }) => {
+  console.log('Exporting report:', report);
+  await new Promise(resolve => setTimeout(resolve, 500));
+  // In a real app, this would return a file or a link to a file
+  return { success: true, url: 'https://example.com/report.csv' };
+};
