@@ -18,6 +18,13 @@ const SocialAnalyticsPage = lazyLoad(() => import('./pages/SocialAnalyticsPage')
 const ISRCManagerPage = lazyLoad(() => import('./pages/ISRCManagerPage'));
 const LabelDashboardPage = lazyLoad(() => import('./pages/LabelDashboardPage'));
 
+/**
+ * Renders the main application layout with navigation, breadcrumbs, and route-based page content.
+ *
+ * Provides a navigation bar with links to all major sections, displays a breadcrumb trail for navigation context, and uses React Router to render the appropriate page component based on the current route. Includes a guided tour component at the top level.
+ *
+ * @returns The root React element for the application.
+ */
 function App() {
   return (
     <Router>
