@@ -3,9 +3,15 @@ type AnalyticsEvent =
   | 'isrc_bulk_assigned'
   | 'isrc_validated'
   | 'isrc_exported'
-  | 'import_started'
-  | 'fields_auto_mapped'
-  | 'import_completed';
+  | 'label_view_loaded'
+  | 'task_assigned'
+  | 'report_exported';
+>>>>>>> origin/main
+=======
+  | 'label_view_loaded'
+  | 'task_assigned'
+  | 'report_exported';
+>>>>>>> origin/main
 
 interface AnalyticsData {
   [key: string]: any;

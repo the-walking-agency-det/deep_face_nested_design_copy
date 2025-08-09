@@ -16,8 +16,24 @@ const ReleaseManagerPage = lazyLoad(() => import('./pages/ReleaseManagerPage'));
 const RoyaltyTrackerPage = lazyLoad(() => import('./pages/RoyaltyTrackerPage'));
 const SocialAnalyticsPage = lazyLoad(() => import('./pages/SocialAnalyticsPage'));
 const ISRCManagerPage = lazyLoad(() => import('./pages/ISRCManagerPage'));
+const LabelDashboardPage = lazyLoad(() => import('./pages/LabelDashboardPage'));
+const SyncSafePage = lazyLoad(() => import('./pages/SyncSafePage'));
+>>>>>>> origin/main
 const ImportPage = lazyLoad(() => import('./pages/ImportPage'));
+const LabelDashboardPage = lazyLoad(() => import('./pages/LabelDashboardPage'));
+const SyncSafePage = lazyLoad(() => import('./pages/SyncSafePage'));
+=======
+const LabelDashboardPage = lazyLoad(() => import('./pages/LabelDashboardPage'));
+const SyncSafePage = lazyLoad(() => import('./pages/SyncSafePage'));
+>>>>>>> origin/main
 
+/**
+ * Renders the main application layout with navigation, breadcrumbs, and route-based page content.
+ *
+ * Provides a navigation bar with links to all major sections, displays a breadcrumb trail for navigation context, and uses React Router to render the appropriate page component based on the current route. Includes a guided tour component at the top level.
+ *
+ * @returns The root React element for the application.
+ */
 function App() {
   return (
     <Router>
@@ -105,10 +121,47 @@ function App() {
                   ISRC Manager
                 </Link>
                 <Link
+                  to="/label"
+                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Label
+                </Link>
+                <Link
+                  to="/flow/sync-safe"
+                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Sync Safe
+>>>>>>> origin/main
+                </Link>
                   to="/import"
                   className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Import
+                </Link>
+                <Link
+                  to="/label"
+                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Label
+                </Link>
+                <Link
+                  to="/flow/sync-safe"
+                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Sync Safe
+                </Link>
+=======
+                  to="/label"
+                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Label
+                </Link>
+                <Link
+                  to="/flow/sync-safe"
+                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Sync Safe
+>>>>>>> origin/main
                 </Link>
               </div>
             </div>
@@ -130,7 +183,16 @@ function App() {
             <Route path="/analytics" element={<SocialAnalyticsPage />} />
             <Route path="/releases" element={<ReleaseManagerPage />} />
             <Route path="/isrc" element={<ISRCManagerPage />} />
+            <Route path="/label" element={<LabelDashboardPage />} />
+            <Route path="/flow/sync-safe" element={<SyncSafePage />} />
+>>>>>>> origin/main
             <Route path="/import" element={<ImportPage />} />
+            <Route path="/label" element={<LabelDashboardPage />} />
+            <Route path="/flow/sync-safe" element={<SyncSafePage />} />
+=======
+            <Route path="/label" element={<LabelDashboardPage />} />
+            <Route path="/flow/sync-safe" element={<SyncSafePage />} />
+>>>>>>> origin/main
           </Routes>
         </main>
       </div>
