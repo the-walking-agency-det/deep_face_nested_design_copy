@@ -12,6 +12,10 @@ const GridPage = lazyLoad(() => import('./pages/GridPage'));
 const TypographyPage = lazyLoad(() => import('./pages/TypographyPage'));
 const IconographyPage = lazyLoad(() => import('./pages/IconographyPage'));
 const MediaPage = lazyLoad(() => import('./pages/MediaPage'));
+const ReleaseManagerPage = lazyLoad(() => import('./pages/ReleaseManagerPage'));
+const RoyaltyTrackerPage = lazyLoad(() => import('./pages/RoyaltyTrackerPage'));
+const SocialAnalyticsPage = lazyLoad(() => import('./pages/SocialAnalyticsPage'));
+const ISRCManagerPage = lazyLoad(() => import('./pages/ISRCManagerPage'));
 
 function App() {
   return (
@@ -74,6 +78,7 @@ function App() {
                   className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Media
+                </Link>
                 <Link
                   to="/releases"
                   className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
@@ -92,6 +97,11 @@ function App() {
                 >
                   Royalties
                 </Link>
+                <Link
+                  to="/isrc"
+                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  ISRC Manager
                 </Link>
               </div>
             </div>
@@ -106,17 +116,18 @@ function App() {
             <Route path="/cards/:id" element={<CardDetailPage />} />
             <Route path="/form" element={<FormPage />} />
             <Route path="/grid" element={<GridPage />} />
-          <Route path="/royalties" element={<RoyaltyTrackerPage />} />
+            <Route path="/royalties" element={<RoyaltyTrackerPage />} />
             <Route path="/typography" element={<TypographyPage />} />
             <Route path="/iconography" element={<IconographyPage />} />
             <Route path="/media" element={<MediaPage />} />
+            <Route path="/analytics" element={<SocialAnalyticsPage />} />
+            <Route path="/releases" element={<ReleaseManagerPage />} />
+            <Route path="/isrc" element={<ISRCManagerPage />} />
           </Routes>
         </main>
-          <Route path="/analytics" element={<SocialAnalyticsPage />} />
       </div>
     </Router>
   );
 }
 
-          <Route path="/releases" element={<ReleaseManagerPage />} />
 export default App;
