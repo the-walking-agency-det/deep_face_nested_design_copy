@@ -19,6 +19,7 @@ const ISRCManagerPage = lazyLoad(() => import('./pages/ISRCManagerPage'));
 const ExclusiveDropPage = lazyLoad(() => import('./pages/ExclusiveDropPage'));
 const ARDiscoveryPage = lazyLoad(() => import('./pages/ARDiscoveryPage'));
 const LabelDashboardPage = lazyLoad(() => import('./pages/LabelDashboardPage'));
+const SyncSafePage = lazyLoad(() => import('./pages/SyncSafePage'));
 
 function App() {
   return (
@@ -124,6 +125,12 @@ function App() {
                 >
                   Label
                 </Link>
+                <Link
+                  to="/flow/sync-safe"
+                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Sync Safe
+                </Link>
               </div>
             </div>
           </div>
@@ -147,6 +154,7 @@ function App() {
             <Route path="/flow/exclusive" element={<ExclusiveDropPage />} />
             <Route path="/ar/discover" element={<ARDiscoveryPage />} />
             <Route path="/label" element={<LabelDashboardPage />} />
+            <Route path="/flow/sync-safe" element={<SyncSafePage />} />
           </Routes>
         </main>
       </div>
