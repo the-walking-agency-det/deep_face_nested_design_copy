@@ -2,7 +2,10 @@ type AnalyticsEvent =
   | 'isrc_opened'
   | 'isrc_bulk_assigned'
   | 'isrc_validated'
-  | 'isrc_exported';
+  | 'isrc_exported'
+  | 'import_started'
+  | 'fields_auto_mapped'
+  | 'import_completed';
 
 interface AnalyticsData {
   [key: string]: any;

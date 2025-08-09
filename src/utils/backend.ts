@@ -57,3 +57,55 @@ export const exportRegistry = async (params: ExportRegistryParams): Promise<stri
   await new Promise(resolve => setTimeout(resolve, 500)); // Simulate network delay
   return csvContent;
 };
+
+// --- Import Feature ---
+
+interface StartImportParams {
+  source: 'csv' | 'spotify' | 'apple_music';
+  mapping: Record<string, string>;
+}
+
+interface StartImportResult {
+  importId: string;
+}
+
+export const startImport = async (params: StartImportParams): Promise<StartImportResult> => {
+  console.log('Starting import with params:', params);
+  const importId = `import-${Math.random().toString(36).substr(2, 9)}`;
+  await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate network delay
+  return { importId };
+};
+
+type ImportStatus = 'mapping' | 'validating' | 'importing' | 'deduping' | 'complete' | 'error';
+
+interface ImportStatusResult {
+  status: ImportStatus;
+  progress: number;
+  message: string;
+  duplicates?: any[]; // Simplified for mock
+  error?: string;
+}
+
+export const getImportStatus = async (importId: string): Promise<ImportStatusResult> => {
+  console.log('Getting import status for:', importId);
+  // Simulate a multi-step process
+  const statuses: ImportStatusResult[] = [
+    { status: 'validating', progress: 25, message: 'Validating data...' },
+    { status: 'importing', progress: 50, message: 'Importing tracks...' },
+    { status: 'deduping', progress: 75, message: 'Checking for duplicates...', duplicates: [{ track: 'Song A', artist: 'Artist 1' }] },
+    { status: 'complete', progress: 100, message: 'Import complete!' },
+  ];
+  const result = statuses[Math.floor(Math.random() * statuses.length)];
+  await new Promise(resolve => setTimeout(resolve, 500)); // Simulate network delay
+  return result;
+};
+
+interface ResolveDuplicatesParams {
+  importId: string;
+  resolutions: any[]; // Simplified for mock
+}
+
+export const resolveDuplicates = async (params: ResolveDuplicatesParams): Promise<void> => {
+  console.log('Resolving duplicates for import:', params.importId, 'with resolutions:', params.resolutions);
+  await new Promise(resolve => setTimeout(resolve, 500)); // Simulate network delay
+};
