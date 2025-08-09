@@ -3,10 +3,31 @@ type AnalyticsEvent =
   | 'isrc_bulk_assigned'
   | 'isrc_validated'
   | 'isrc_exported'
-  | 'ar_filters_applied'
-  | 'ar_preview_played'
-  | 'ar_saved'
-  | 'ar_exported';
+  | 'presave_link_created'
+  | 'preview_played'
+  | 'launch_autoswitch'
+  | 'personalized_generated'
+  | 'emails_sent'
+  | 'downloads'
+  | 'grant_validated'
+  | 'grant_exported'
+  | 'art_generated'
+  | 'variant_saved'
+  | 'seed_reused';
+>>>>>>> origin/feat/pre-save-flow
+=======
+  | 'presave_link_created'
+  | 'preview_played'
+  | 'launch_autoswitch'
+  | 'personalized_generated'
+  | 'emails_sent'
+  | 'downloads'
+  | 'grant_validated'
+  | 'grant_exported'
+  | 'art_generated'
+  | 'variant_saved'
+  | 'seed_reused';
+>>>>>>> origin/feat/pre-save-flow
 
 interface AnalyticsData {
   [key: string]: any;

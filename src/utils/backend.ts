@@ -58,53 +58,133 @@ export const exportRegistry = async (params: ExportRegistryParams): Promise<stri
   return csvContent;
 };
 
-// A&R Discovery Mocks
-export interface Prospect {
-  id: string;
-  artistName: string;
-  trackTitle: string;
-  imageUrl: string;
-  reasons: string[];
-}
-
-export interface ARFilters {
-    growth: string;
-    saves: string;
-    shares: string;
-}
-
-export const searchProspects = async (filters: ARFilters): Promise<Prospect[]> => {
-    console.log('Searching prospects with filters:', filters);
-    // Simulate filtering logic
+export const createPreSave = async (config: any): Promise<{ presaveId: string }> => {
+    console.log('Creating Pre-Save with config:', config);
     await new Promise(resolve => setTimeout(resolve, 500));
-    const mockProspects: Prospect[] = [
-      { id: '1', artistName: 'Ethereal Echo', trackTitle: 'Crystal Caves', imageUrl: 'https://picsum.photos/seed/a/400/400', reasons: ['High Growth', 'Viral'] },
-      { id: '2', artistName: 'Midnight Bloom', trackTitle: 'Neon Petals', imageUrl: 'https://picsum.photos/seed/b/400/400', reasons: ['High Saves'] },
-      { id: '3', artistName: 'Solar Flare', trackTitle: 'Sunspot', imageUrl: 'https://picsum.photos/seed/c/400/400', reasons: ['High Shares', 'New Artist'] },
-      { id: '4', artistName: 'Tidal Wave', trackTitle: 'Deep Blue', imageUrl: 'https://picsum.photos/seed/d/400/400', reasons: ['High Growth'] },
-    ];
-    return mockProspects.filter(p => (filters.growth ? p.reasons.includes('High Growth') : true) && (filters.saves ? p.reasons.includes('High Saves') : true) && (filters.shares ? p.reasons.includes('High Shares') : true));
+    return { presaveId: `ps_${Math.random().toString(36).substring(2, 9)}` };
 };
 
-export const getHighlight = async (trackId: string): Promise<string> => {
-    console.log('Getting highlight for track:', trackId);
-    await new Promise(resolve => setTimeout(resolve, 500));
-    return "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
-};
-
-export const saveProspects = async (prospects: Prospect[]): Promise<void> => {
-    console.log('Saving prospects:', prospects);
+export const recordEvent = async (eventName: string, data: any): Promise<void> => {
+    console.log('Recording event:', eventName, data);
     await new Promise(resolve => setTimeout(resolve, 500));
 };
 
-export const exportProspects = async (prospects: Prospect[]): Promise<string> => {
-    console.log('Exporting prospects');
-    const csvContent = [
-      ['Artist Name', 'Track Title', 'Reasons'],
-      ...prospects.map(p => [p.artistName, p.trackTitle, `"${p.reasons.join(', ')}"`]),
-    ]
-      .map(e => e.join(','))
-      .join('\n');
+export const switchToLive = async (releaseId: string): Promise<void> => {
+    console.log('Switching to live for releaseId:', releaseId);
     await new Promise(resolve => setTimeout(resolve, 500));
-    return 'data:text/csv;charset=utf-8,' + encodeURIComponent(csvContent);
+};
+
+export const generateCovers = async (fans: any[]): Promise<any[]> => {
+    console.log('Generating covers for fans:', fans);
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return fans.map(fan => ({ ...fan, coverUrl: `https://via.placeholder.com/150/0000FF/808080?Text=${fan.name}` }));
+};
+
+export const renderBatch = async (variants: any[]): Promise<void> => {
+    console.log('Rendering batch for variants:', variants);
+    await new Promise(resolve => setTimeout(resolve, 500));
+};
+
+export const sendEmails = async (variants: any[]): Promise<void> => {
+    console.log('Sending emails for variants:', variants);
+    await new Promise(resolve => setTimeout(resolve, 500));
+};
+
+export const generatePortfolioPDF = async (form: any): Promise<string> => {
+    console.log('Generating portfolio PDF with form:', form);
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return 'path/to/portfolio.pdf';
+};
+
+export const exportBundle = async (form: any, attachments: any[]): Promise<string> => {
+    console.log('Exporting bundle with form and attachments:', form, attachments);
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return 'path/to/bundle.zip';
+};
+
+export const setReminder = async (date: Date): Promise<void> => {
+    console.log('Setting reminder for date:', date);
+    await new Promise(resolve => setTimeout(resolve, 500));
+};
+
+export const analyzeFeatures = async (trackId: string): Promise<any> => {
+    console.log('Analyzing features for trackId:', trackId);
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return {
+        tempo: 120,
+        energy: 0.8,
+        valence: 0.5,
+    };
+};
+
+export const generateArt = async (seed: any, params: any): Promise<string> => {
+    console.log('Generating art with seed and params:', seed, params);
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return `https://picsum.photos/seed/${seed}/200/300`;
+>>>>>>> origin/feat/pre-save-flow
+=======
+export const createPreSave = async (config: any): Promise<{ presaveId: string }> => {
+    console.log('Creating Pre-Save with config:', config);
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return { presaveId: `ps_${Math.random().toString(36).substring(2, 9)}` };
+};
+
+export const recordEvent = async (eventName: string, data: any): Promise<void> => {
+    console.log('Recording event:', eventName, data);
+    await new Promise(resolve => setTimeout(resolve, 500));
+};
+
+export const switchToLive = async (releaseId: string): Promise<void> => {
+    console.log('Switching to live for releaseId:', releaseId);
+    await new Promise(resolve => setTimeout(resolve, 500));
+};
+
+export const generateCovers = async (fans: any[]): Promise<any[]> => {
+    console.log('Generating covers for fans:', fans);
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return fans.map(fan => ({ ...fan, coverUrl: `https://via.placeholder.com/150/0000FF/808080?Text=${fan.name}` }));
+};
+
+export const renderBatch = async (variants: any[]): Promise<void> => {
+    console.log('Rendering batch for variants:', variants);
+    await new Promise(resolve => setTimeout(resolve, 500));
+};
+
+export const sendEmails = async (variants: any[]): Promise<void> => {
+    console.log('Sending emails for variants:', variants);
+    await new Promise(resolve => setTimeout(resolve, 500));
+};
+
+export const generatePortfolioPDF = async (form: any): Promise<string> => {
+    console.log('Generating portfolio PDF with form:', form);
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return 'path/to/portfolio.pdf';
+};
+
+export const exportBundle = async (form: any, attachments: any[]): Promise<string> => {
+    console.log('Exporting bundle with form and attachments:', form, attachments);
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return 'path/to/bundle.zip';
+};
+
+export const setReminder = async (date: Date): Promise<void> => {
+    console.log('Setting reminder for date:', date);
+    await new Promise(resolve => setTimeout(resolve, 500));
+};
+
+export const analyzeFeatures = async (trackId: string): Promise<any> => {
+    console.log('Analyzing features for trackId:', trackId);
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return {
+        tempo: 120,
+        energy: 0.8,
+        valence: 0.5,
+    };
+};
+
+export const generateArt = async (seed: any, params: any): Promise<string> => {
+    console.log('Generating art with seed and params:', seed, params);
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return `https://picsum.photos/seed/${seed}/200/300`;
+>>>>>>> origin/feat/pre-save-flow
 };
