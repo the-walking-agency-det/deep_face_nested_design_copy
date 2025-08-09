@@ -57,3 +57,19 @@ export const exportRegistry = async (params: ExportRegistryParams): Promise<stri
   await new Promise(resolve => setTimeout(resolve, 500)); // Simulate network delay
   return csvContent;
 };
+
+export const createPreSave = async (config: any): Promise<{ presaveId: string }> => {
+    console.log('Creating Pre-Save with config:', config);
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return { presaveId: `ps_${Math.random().toString(36).substring(2, 9)}` };
+};
+
+export const recordEvent = async (eventName: string, data: any): Promise<void> => {
+    console.log('Recording event:', eventName, data);
+    await new Promise(resolve => setTimeout(resolve, 500));
+};
+
+export const switchToLive = async (releaseId: string): Promise<void> => {
+    console.log('Switching to live for releaseId:', releaseId);
+    await new Promise(resolve => setTimeout(resolve, 500));
+};

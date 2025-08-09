@@ -16,6 +16,7 @@ const ReleaseManagerPage = lazyLoad(() => import('./pages/ReleaseManagerPage'));
 const RoyaltyTrackerPage = lazyLoad(() => import('./pages/RoyaltyTrackerPage'));
 const SocialAnalyticsPage = lazyLoad(() => import('./pages/SocialAnalyticsPage'));
 const ISRCManagerPage = lazyLoad(() => import('./pages/ISRCManagerPage'));
+const PreSavePage = lazyLoad(() => import('./pages/PreSavePage'));
 
 function App() {
   return (
@@ -103,6 +104,12 @@ function App() {
                 >
                   ISRC Manager
                 </Link>
+                <Link
+                  to="/flow/presave"
+                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Pre-Save Flow
+                </Link>
               </div>
             </div>
           </div>
@@ -121,8 +128,10 @@ function App() {
             <Route path="/iconography" element={<IconographyPage />} />
             <Route path="/media" element={<MediaPage />} />
             <Route path="/analytics" element={<SocialAnalyticsPage />} />
-            <Route path="/releases" element={<ReleaseManagerPage />} />
+            <Rout
+                e path="/releases" element={<ReleaseManagerPage />} />
             <Route path="/isrc" element={<ISRCManagerPage />} />
+            <Route path="/flow/presave" element={<PreSavePage />} />
           </Routes>
         </main>
       </div>
