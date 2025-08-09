@@ -57,3 +57,34 @@ export const exportRegistry = async (params: ExportRegistryParams): Promise<stri
   await new Promise(resolve => setTimeout(resolve, 500)); // Simulate network delay
   return csvContent;
 };
+
+// --- Exclusive Drop Flow ---
+
+interface ExclusiveDropConfig {
+  codeLimit: number;
+}
+
+export const generateCodes = async (n: number): Promise<string[]> => {
+  console.log(`Generating ${n} exclusive codes...`);
+  const codes = Array.from({ length: n }, () => `EXCLUSIVE_CODE_${Math.random().toString(36).substring(2, 10).toUpperCase()}`);
+  await new Promise(resolve => setTimeout(resolve, 500)); // Simulate network delay
+  console.log('Generated codes:', codes);
+  return codes;
+}
+
+export const publishLanding = async (config: ExclusiveDropConfig): Promise<boolean> => {
+  console.log('Publishing exclusive drop landing page with config:', config);
+  await new Promise(resolve => setTimeout(resolve, 500)); // Simulate network delay
+  console.log('Landing page published successfully.');
+  return true;
+}
+
+export const checkRedemptionStats = async (): Promise<{ redeemedCount: number, totalCount: number }> => {
+  console.log('Checking redemption stats...');
+  // Simulate some redeemed codes
+  const totalCount = 1000;
+  const redeemedCount = Math.floor(Math.random() * totalCount);
+  await new Promise(resolve => setTimeout(resolve, 500)); // Simulate network delay
+  console.log('Redemption stats:', { redeemedCount, totalCount });
+  return { redeemedCount, totalCount };
+}
