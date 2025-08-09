@@ -10,7 +10,10 @@ type AnalyticsEvent =
   | 'emails_sent'
   | 'downloads'
   | 'grant_validated'
-  | 'grant_exported';
+  | 'grant_exported'
+  | 'art_generated'
+  | 'variant_saved'
+  | 'seed_reused';
 
 interface AnalyticsData {
   [key: string]: any;

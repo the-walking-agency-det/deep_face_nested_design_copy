@@ -106,3 +106,19 @@ export const setReminder = async (date: Date): Promise<void> => {
     console.log('Setting reminder for date:', date);
     await new Promise(resolve => setTimeout(resolve, 500));
 };
+
+export const analyzeFeatures = async (trackId: string): Promise<any> => {
+    console.log('Analyzing features for trackId:', trackId);
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return {
+        tempo: 120,
+        energy: 0.8,
+        valence: 0.5,
+    };
+};
+
+export const generateArt = async (seed: any, params: any): Promise<string> => {
+    console.log('Generating art with seed and params:', seed, params);
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return `https://picsum.photos/seed/${seed}/200/300`;
+};

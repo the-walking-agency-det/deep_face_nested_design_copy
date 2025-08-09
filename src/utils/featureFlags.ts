@@ -4,6 +4,7 @@ interface FeatureFlags {
   enableGating: boolean;
   enableWatermark: boolean;
   enableAutoScan: boolean;
+  enableGenArt: boolean;
 }
 
 const featureFlags: FeatureFlags = {
@@ -12,6 +13,7 @@ const featureFlags: FeatureFlags = {
   enableGating: true,
   enableWatermark: true,
   enableAutoScan: true,
+  enableGenArt: true,
 };
 
 export default featureFlags;
