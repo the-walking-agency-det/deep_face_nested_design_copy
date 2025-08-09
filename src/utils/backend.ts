@@ -57,3 +57,49 @@ export const exportRegistry = async (params: ExportRegistryParams): Promise<stri
   await new Promise(resolve => setTimeout(resolve, 500)); // Simulate network delay
   return csvContent;
 };
+
+import { Finding, Edit } from '../store/syncSafeStore';
+
+interface AnalyzeContentParams {
+  trackId: string;
+}
+
+interface CreateCleanEditParams {
+  trackId: string;
+  edits: Edit[];
+}
+
+interface ExportReportParams {
+  trackId: string;
+  findings: Finding[];
+  edits: Edit[];
+}
+
+export const analyzeContent = async (params: AnalyzeContentParams): Promise<Finding[]> => {
+  console.log('Analyzing content for track:', params.trackId);
+  await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate network delay
+  return [
+    { id: '1', timestamp: 30, type: 'explicit_lyrics', details: 'Explicit word found at 0:30' },
+    { id: '2', timestamp: 60, type: 'explicit_lyrics', details: 'Explicit word found at 1:00' },
+    { id: '3', timestamp: 90, type: 'other', details: 'Loud noise found at 1:30' },
+  ];
+};
+
+export const createCleanEdit = async (params: CreateCleanEditParams): Promise<string> => {
+  console.log('Creating clean edit for track:', params.trackId, 'with edits:', params.edits);
+  await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate network delay
+  return 'path/to/clean/audio.mp3';
+};
+
+export const exportReport = async (params: ExportReportParams): Promise<string> => {
+  console.log('Exporting report for track:', params.trackId);
+  const reportContent = `
+    Report for track ${params.trackId}
+    Findings:
+    ${params.findings.map(f => `- ${f.details} at ${f.timestamp}s`).join('\n')}
+    Edits:
+    ${params.edits.map(e => `- ${e.action} at finding ${e.findingId}`).join('\n')}
+  `;
+  await new Promise(resolve => setTimeout(resolve, 500)); // Simulate network delay
+  return reportContent;
+};
