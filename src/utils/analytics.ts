@@ -3,9 +3,10 @@ type AnalyticsEvent =
   | 'isrc_bulk_assigned'
   | 'isrc_validated'
   | 'isrc_exported'
-  | 'label_view_loaded'
-  | 'task_assigned'
-  | 'report_exported';
+  | 'ar_filters_applied'
+  | 'ar_preview_played'
+  | 'ar_saved'
+  | 'ar_exported';
 
 interface AnalyticsData {
   [key: string]: any;
