@@ -3,6 +3,7 @@ interface FeatureFlags {
   enableValidate: boolean;
   enableGating: boolean;
   enableWatermark: boolean;
+  enableAutoScan: boolean;
 }
 
 const featureFlags: FeatureFlags = {
@@ -10,6 +11,7 @@ const featureFlags: FeatureFlags = {
   enableValidate: true,
   enableGating: true,
   enableWatermark: true,
+  enableAutoScan: true,
 };
 
 export default featureFlags;

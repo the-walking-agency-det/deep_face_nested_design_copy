@@ -8,7 +8,9 @@ type AnalyticsEvent =
   | 'launch_autoswitch'
   | 'personalized_generated'
   | 'emails_sent'
-  | 'downloads';
+  | 'downloads'
+  | 'grant_validated'
+  | 'grant_exported';
 
 interface AnalyticsData {
   [key: string]: any;
