@@ -5,7 +5,10 @@ type AnalyticsEvent =
   | 'isrc_exported'
   | 'presave_link_created'
   | 'preview_played'
-  | 'launch_autoswitch';
+  | 'launch_autoswitch'
+  | 'personalized_generated'
+  | 'emails_sent'
+  | 'downloads';
 
 interface AnalyticsData {
   [key: string]: any;

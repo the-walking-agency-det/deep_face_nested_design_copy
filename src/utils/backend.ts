@@ -73,3 +73,19 @@ export const switchToLive = async (releaseId: string): Promise<void> => {
     console.log('Switching to live for releaseId:', releaseId);
     await new Promise(resolve => setTimeout(resolve, 500));
 };
+
+export const generateCovers = async (fans: any[]): Promise<any[]> => {
+    console.log('Generating covers for fans:', fans);
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return fans.map(fan => ({ ...fan, coverUrl: `https://via.placeholder.com/150/0000FF/808080?Text=${fan.name}` }));
+};
+
+export const renderBatch = async (variants: any[]): Promise<void> => {
+    console.log('Rendering batch for variants:', variants);
+    await new Promise(resolve => setTimeout(resolve, 500));
+};
+
+export const sendEmails = async (variants: any[]): Promise<void> => {
+    console.log('Sending emails for variants:', variants);
+    await new Promise(resolve => setTimeout(resolve, 500));
+};
