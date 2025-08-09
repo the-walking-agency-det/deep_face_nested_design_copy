@@ -57,3 +57,54 @@ export const exportRegistry = async (params: ExportRegistryParams): Promise<stri
   await new Promise(resolve => setTimeout(resolve, 500)); // Simulate network delay
   return csvContent;
 };
+
+// A&R Discovery Mocks
+export interface Prospect {
+  id: string;
+  artistName: string;
+  trackTitle: string;
+  imageUrl: string;
+  reasons: string[];
+}
+
+export interface ARFilters {
+    growth: string;
+    saves: string;
+    shares: string;
+}
+
+export const searchProspects = async (filters: ARFilters): Promise<Prospect[]> => {
+    console.log('Searching prospects with filters:', filters);
+    // Simulate filtering logic
+    await new Promise(resolve => setTimeout(resolve, 500));
+    const mockProspects: Prospect[] = [
+      { id: '1', artistName: 'Ethereal Echo', trackTitle: 'Crystal Caves', imageUrl: 'https://picsum.photos/seed/a/400/400', reasons: ['High Growth', 'Viral'] },
+      { id: '2', artistName: 'Midnight Bloom', trackTitle: 'Neon Petals', imageUrl: 'https://picsum.photos/seed/b/400/400', reasons: ['High Saves'] },
+      { id: '3', artistName: 'Solar Flare', trackTitle: 'Sunspot', imageUrl: 'https://picsum.photos/seed/c/400/400', reasons: ['High Shares', 'New Artist'] },
+      { id: '4', artistName: 'Tidal Wave', trackTitle: 'Deep Blue', imageUrl: 'https://picsum.photos/seed/d/400/400', reasons: ['High Growth'] },
+    ];
+    return mockProspects.filter(p => (filters.growth ? p.reasons.includes('High Growth') : true) && (filters.saves ? p.reasons.includes('High Saves') : true) && (filters.shares ? p.reasons.includes('High Shares') : true));
+};
+
+export const getHighlight = async (trackId: string): Promise<string> => {
+    console.log('Getting highlight for track:', trackId);
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+};
+
+export const saveProspects = async (prospects: Prospect[]): Promise<void> => {
+    console.log('Saving prospects:', prospects);
+    await new Promise(resolve => setTimeout(resolve, 500));
+};
+
+export const exportProspects = async (prospects: Prospect[]): Promise<string> => {
+    console.log('Exporting prospects');
+    const csvContent = [
+      ['Artist Name', 'Track Title', 'Reasons'],
+      ...prospects.map(p => [p.artistName, p.trackTitle, `"${p.reasons.join(', ')}"`]),
+    ]
+      .map(e => e.join(','))
+      .join('\n');
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return 'data:text/csv;charset=utf-8,' + encodeURIComponent(csvContent);
+};

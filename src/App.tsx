@@ -16,6 +16,7 @@ const ReleaseManagerPage = lazyLoad(() => import('./pages/ReleaseManagerPage'));
 const RoyaltyTrackerPage = lazyLoad(() => import('./pages/RoyaltyTrackerPage'));
 const SocialAnalyticsPage = lazyLoad(() => import('./pages/SocialAnalyticsPage'));
 const ISRCManagerPage = lazyLoad(() => import('./pages/ISRCManagerPage'));
+const ARDiscoveryPage = lazyLoad(() => import('./pages/ARDiscoveryPage'));
 
 function App() {
   return (
@@ -103,6 +104,12 @@ function App() {
                 >
                   ISRC Manager
                 </Link>
+                <Link
+                  to="/ar/discover"
+                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  A&R Discovery
+                </Link>
               </div>
             </div>
           </div>
@@ -123,6 +130,7 @@ function App() {
             <Route path="/analytics" element={<SocialAnalyticsPage />} />
             <Route path="/releases" element={<ReleaseManagerPage />} />
             <Route path="/isrc" element={<ISRCManagerPage />} />
+            <Route path="/ar/discover" element={<ARDiscoveryPage />} />
           </Routes>
         </main>
       </div>
