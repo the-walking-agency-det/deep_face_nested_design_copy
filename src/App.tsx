@@ -17,6 +17,7 @@ const RoyaltyTrackerPage = lazyLoad(() => import('./pages/RoyaltyTrackerPage'));
 const SocialAnalyticsPage = lazyLoad(() => import('./pages/SocialAnalyticsPage'));
 const ISRCManagerPage = lazyLoad(() => import('./pages/ISRCManagerPage'));
 const LabelDashboardPage = lazyLoad(() => import('./pages/LabelDashboardPage'));
+const SyncSafePage = lazyLoad(() => import('./pages/SyncSafePage'));
 
 /**
  * Renders the main application layout with navigation, breadcrumbs, and route-based page content.
@@ -117,6 +118,12 @@ function App() {
                 >
                   Label
                 </Link>
+                <Link
+                  to="/flow/sync-safe"
+                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Sync Safe
+                </Link>
               </div>
             </div>
           </div>
@@ -138,6 +145,7 @@ function App() {
             <Route path="/releases" element={<ReleaseManagerPage />} />
             <Route path="/isrc" element={<ISRCManagerPage />} />
             <Route path="/label" element={<LabelDashboardPage />} />
+            <Route path="/flow/sync-safe" element={<SyncSafePage />} />
           </Routes>
         </main>
       </div>
