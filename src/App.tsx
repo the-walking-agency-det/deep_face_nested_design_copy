@@ -20,13 +20,7 @@ const PreSavePage = lazyLoad(() => import('./pages/PreSavePage'));
 const PersonalizedPage = lazyLoad(() => import('./pages/PersonalizedPage'));
 const GrantPage = lazyLoad(() => import('./pages/GrantPage'));
 const AudioArtPage = lazyLoad(() => import('./pages/AudioArtPage'));
->>>>>>> origin/feat/pre-save-flow
-=======
-const PreSavePage = lazyLoad(() => import('./pages/PreSavePage'));
-const PersonalizedPage = lazyLoad(() => import('./pages/PersonalizedPage'));
-const GrantPage = lazyLoad(() => import('./pages/GrantPage'));
-const AudioArtPage = lazyLoad(() => import('./pages/AudioArtPage'));
->>>>>>> origin/feat/pre-save-flow
+const CueSheetPage = lazyLoad(() => import('./pages/CueSheetPage'));
 
 function App() {
   return (
@@ -137,32 +131,12 @@ function App() {
                     className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
                 >
                     Audio Art Flow
->>>>>>> origin/feat/pre-save-flow
-                </Link>
-=======
-                  to="/flow/presave"
-                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Pre-Save Flow
                 </Link>
                 <Link
-                  to="/flow/personalized"
-                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Personalized Flow
-                </Link>
-                <Link
-                  to="/flow/grants"
-                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Grant Flow
-                </Link>
-                <Link
-                    to="/flow/audio-art"
+                    to="/flow/cue-sheet"
                     className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium"
                 >
-                    Audio Art Flow
->>>>>>> origin/feat/pre-save-flow
+                    Cue Sheet
                 </Link>
               </div>
             </div>
@@ -182,20 +156,13 @@ function App() {
             <Route path="/iconography" element={<IconographyPage />} />
             <Route path="/media" element={<MediaPage />} />
             <Route path="/analytics" element={<SocialAnalyticsPage />} />
-            <Rout
-                e path="/releases" element={<ReleaseManagerPage />} />
+            <Route path="/releases" element={<ReleaseManagerPage />} />
             <Route path="/isrc" element={<ISRCManagerPage />} />
             <Route path="/flow/presave" element={<PreSavePage />} />
             <Route path="/flow/personalized" element={<PersonalizedPage />} />
             <Route path="/flow/grants" element={<GrantPage />} />
             <Route path="/flow/audio-art" element={<AudioArtPage />} />
->>>>>>> origin/feat/pre-save-flow
-=======
-            <Route path="/flow/presave" element={<PreSavePage />} />
-            <Route path="/flow/personalized" element={<PersonalizedPage />} />
-            <Route path="/flow/grants" element={<GrantPage />} />
-            <Route path="/flow/audio-art" element={<AudioArtPage />} />
->>>>>>> origin/feat/pre-save-flow
+            <Route path="/flow/cue-sheet" element={<CueSheetPage />} />
           </Routes>
         </main>
       </div>
